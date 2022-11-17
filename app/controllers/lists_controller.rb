@@ -4,8 +4,8 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find(params[:id])
-    # @bookmarks = @list.bookmarks
+    @bookmark = Bookmark.new
+    @review = Review.new(list: @list)
   end
 
   def new
@@ -19,6 +19,11 @@ class ListsController < ApplicationController
     else
     render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @list.destroy
+    redirect_to lists_path, status: :see_other
   end
 
   private
