@@ -1,10 +1,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>All movies</h1> <br>
-      <%= cl_image_tag("mjtslvn9ti7nypc1wmd4",
-      width: 400, height: 300, crop: :fill) %>
+      <%# bannière du site %>
+      <div class="banner md" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+        <div class="container">
+          <h1 class="display-1 text-primary">All movies</h1>
+          <p class="display-6 text-info">Choose your favorite movies</p>
+        </div>
+      </div>
+      <div>
+        <%= cl_image_tag("mjtslvn9ti7nypc1wmd4",
+        width: 400, height: 300, crop: :fill) %>
+        </div>
       <br>
+
       <ul class="list-group mb-3">
         <% @lists.each do |list| %>
           <li class="list-group-item">
