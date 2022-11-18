@@ -1,8 +1,36 @@
-<div class="container">
+<div class="cover mb-4 d-flex align-items-center justify-content-center">
+  <div class="text-center text-white">
+    <h1>Save any kind of movies</h1>
+    <h3 class="typed-js" data-controller="typed-js"></h3>
+  </div>
+</div>
+
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">My Lists</h3>
+    <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>
+  </div>
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to list_path(list), class:"text-decoration-none" do %>
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('list_background.jpg') %>)">
+            <%= list.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<%# //Old code %>
+
+<%# <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <%# bannière du site %>
-      <div class="banner md" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+      <%# <div class="banner md" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
         <div class="container">
           <h1 class="display-1 text-primary">All movies</h1>
           <p class="display-6 text-info">Choose your favorite movies</p>
@@ -11,17 +39,17 @@
       <div>
         <%= cl_image_tag("mjtslvn9ti7nypc1wmd4",
         width: 400, height: 300, crop: :fill) %>
-        </div>
+        <%# </div>
       <br>
 
       <ul class="list-group mb-3">
         <% @lists.each do |list| %>
-          <li class="list-group-item">
+          <%# <li class="list-group-item">
             <%= link_to list.name, list_path(@lists) %>
-          </li>
+          <%# </li>
         <% end %>
-      </ul>
+      <%# </ul>
       <%= link_to "Add a new List", new_list_path, class: 'btn btn-primary'%>
+  <%# </div>
   </div>
-  </div>
-</div>
+</div> %>
