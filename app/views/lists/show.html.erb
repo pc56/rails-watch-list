@@ -4,6 +4,7 @@
       <h1><%= @list.name %></h1>
       <br>
       <%# Add a new bookmark to an existing list %>
+      <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
       <br>
       <%= link_to "See all lists", lists_path, class: 'btn btn-primary' %>
     </div>
